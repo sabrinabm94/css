@@ -1,0 +1,37 @@
+// Grid system
+.grid-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  flex-direction: row;
+  scroll-behavior: smooth;
+
+  .grid-container-item {
+    box-sizing: border-box;
+    margin: 10px;
+    padding: 10px;
+    flex: 1 0 100%;
+  }
+}
+
+.grid-container,
+.grid-container-item {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.slider-container {
+  overflow-x: scroll; // slider side to side
+}
+
+@media screen and (width >= 769px) {
+  // notebook and desktop
+  .grid-container {
+    scroll-snap-type: x mandatory;
+
+    .grid-container-item {
+      flex-direction: 1 0 32%; // 3 per line
+      scroll-snap-align: start;
+    }
+  }
+}
